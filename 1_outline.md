@@ -102,3 +102,20 @@ Commit: to detail_pokemon
 ```
 Commit: to card_contents
 ```
+
+## Emmetについて
+```
+div.hogeで
+<div className="hoge"></div>
+等を生成してくれる優れもの
+
+javascriptでデフォルトでoffになっていたのでEmmet: Include Languagesに、以下の様に追加した。
+問題であれば削除する事
+//javascriptreactであれば補完が効くので以下の様にしている
+"emmet.includeLanguages": {
+  "vue-html" : "html",
+  "javascript": "javascriptreact",
+  "jsx": "javascriptreact"
+}
+
+```
