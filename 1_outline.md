@@ -92,3 +92,8 @@ Commit: to fetch(862e682)
 ```
 Commit: to loading
 ```
+
+## ポケモンの詳細データを取ってくる
+```
+Commit: to detail_pokemon
+```
