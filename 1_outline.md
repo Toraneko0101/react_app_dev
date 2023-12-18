@@ -97,3 +97,8 @@ Commit: to loading
 ```
 Commit: to detail_pokemon
 ```
+
+## Cardに書く内容をreturn内に記述
+```
+Commit: to card_contents
+```
