@@ -82,3 +82,13 @@ https://pokeapi.co/
 
 const initialURL = "https://pokeapi.co/api/v2/pokemon";というようなURLを元にして使用する。
 ```
+
+## fetchについて
+```
+Commit: to fetch(862e682)
+```
+
+## 読み込み中の表示を追加
+```
+Commit: to loading
+```
