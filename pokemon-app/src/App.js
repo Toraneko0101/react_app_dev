@@ -2,6 +2,8 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import {getAllPokemon, getPokemon} from "./utils/pokemon.js";
 import Card from "./components/Card/Card.js"
+import Navbar from './components/Navbar/Navbar.js';
+
 function App() {
   const initialURL = "https://pokeapi.co/api/v2/pokemon"; //このエンドポイントの値をうまく変えていく
   const [loading, setLoading] = useState(true);
@@ -34,7 +36,10 @@ function App() {
   };
   console.log(pokemonData); //状態が変わるたびに再レンダリング
 
-  return <div className="App">
+  return( 
+  <>
+  <Navbar />
+  <div className="App">
     {loading ? (
       <h1>ロード中・・・</h1>
     ) : (
@@ -46,7 +51,9 @@ function App() {
       </div>
     </>
     )}
-  </div>;
+  </div>
+  </>
+  );
 }
 
 export default App;
