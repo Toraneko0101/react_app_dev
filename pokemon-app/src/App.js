@@ -8,6 +8,8 @@ function App() {
   const initialURL = "https://pokeapi.co/api/v2/pokemon"; //このエンドポイントの値をうまく変えていく
   const [loading, setLoading] = useState(true);
   const [pokemonData, setPokemonData] = useState([]);
+  const [nextURL, setNextURL] = useState("");
+  const [prevURL, setPrevURL] = useState("");
 
   //browserがloadされた時に叩くので、1回だけ呼び出す
   useEffect(() => {
@@ -15,8 +17,9 @@ function App() {
       //全てのポケモンデータをURLから非同期で取得
       let res = await getAllPokemon(initialURL);
       //各ポケモンの詳細なデータを取得
-      loadPokemon(res.results);
-
+      await loadPokemon(res.results);
+      setNextURL(res.next);
+      setPrevURL(res.previous); //null
       setLoading(false);
     };
 
@@ -34,7 +37,26 @@ function App() {
     );
     setPokemonData(_pokemonData);
   };
-  console.log(pokemonData); //状態が変わるたびに再レンダリング
+
+  const handlePrevPage = async () => {
+    if(!prevURL) return;
+    setLoading(true);
+    let data = await getAllPokemon(prevURL);
+    await loadPokemon(data.results);
+    setNextURL(data.next);
+    setPrevURL(data.previous);
+    console.log(data.previous);
+    setLoading(false);
+  };
+  const handleNextPage = async () => {
+    if(!nextURL) return;
+    setLoading(true);
+    let data = await getAllPokemon(nextURL);
+    await loadPokemon(data.results);
+    setNextURL(data.next); //nextURLを更新
+    setPrevURL(data.previous); //prevURLを更新
+    setLoading(false);
+  };
 
   return( 
   <>
@@ -48,6 +70,10 @@ function App() {
         {pokemonData.map((pokemon, i)=>{
           return <Card key={i} pokemon={pokemon} />;
         })}
+      </div>
+      <div className="btn">
+        <button onClick={handlePrevPage}>前へ</button>
+        <button onClick={handleNextPage}>次へ</button>
       </div>
     </>
     )}

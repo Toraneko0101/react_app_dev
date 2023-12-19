@@ -142,3 +142,11 @@ Commit: to Card_CSS
 ```
 Commit: to Nav
 ```
+
+## ページ遷移
+```
+Commit: to page
+・次の20匹はgetAllPokemonの返り値の.nextに含まれている。
+・前の20匹は.previous
+・そのため遷移の度にそれをuseEffectに格納しておく
+```
