@@ -119,3 +119,16 @@ javascriptでデフォルトでoffになっていたのでEmmet: Include Languag
 }
 
 ```
+
+## グリッド表示
+```
+grid-template-columns
+    縦列の幅を指定
+    fr: 比率での指定
+gap
+    行や列の間の隙間(row-gap, column-gapの一括指定)
+display: grid;
+    二次元グリッドシステムにする。
+    子要素がグリッドアイテムへと変わる
+
+```
