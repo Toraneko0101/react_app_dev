@@ -8,8 +8,8 @@ https://zenn.dev/kiriyama/articles/630b2547a6ac79
 1. reactの中に書く場合
 ```
 /** @jsxImportSource @emotion/react */を先頭に書く or 
-Next.jsの場合は、
-npm i -D @emotion/babel-plugin
+babel構成が可能なプロジェクトなら以下の依存関係を追加
+npm i @emotion/babel-preset-css-prop
 
 ```
 
